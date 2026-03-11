@@ -10,6 +10,7 @@ import org.testng.Assert;
 public class TC1StepDefinitions {
     private WebDriver driver = DriverManager.getDriver();
     private HomePage homePage = new HomePage(DriverManager.getDriver());
+   private QualityEngineeringPage qePage = new QualityEngineeringPage(driver);
 
     @Given("User navigates to {string}")
     public void userNavigatesTo(String url) {
@@ -34,7 +35,6 @@ public class TC1StepDefinitions {
     @Then("{string} text should be visible on the page")
     public void textShouldBeVisible(String text) {
         if (text.equalsIgnoreCase("Quality Engineering")) {
-            QualityEngineeringPage qePage = new QualityEngineeringPage(driver);
             Assert.assertTrue(qePage.isMainBannerTagVisible(), "Specific banner tag not found!");
         } else {
             Assert.assertTrue(homePage.isTextVisible(text), "Text not visible: " + text);

@@ -8,13 +8,13 @@ public class HomePage extends BasePage {
     private Actions actions;
 
     public HomePage(WebDriver driver) {
-        super(driver); // BasePage constructor'ını çağırır
+        super(driver);
         this.actions = new Actions(driver);
     }
 
     public void navigateTo(String url) {
         driver.get(url);
-        handlePopups(); // İlk girişte temizle
+        handlePopups();
     }
 
     public void hoverOverElement(String linkText) {
