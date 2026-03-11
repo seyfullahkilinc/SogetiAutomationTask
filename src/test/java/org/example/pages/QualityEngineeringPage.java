@@ -3,27 +3,19 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
-public class QualityEngineeringPage {
+public class QualityEngineeringPage extends BasePage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final By bannerTag = By.xpath("//span[@class='banner-tag'][normalize-space()='Quality Engineering']");
 
     public QualityEngineeringPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        super(driver);
     }
 
-    public boolean isTextVisible(String text) {
+    public boolean isMainBannerTagVisible() {
         try {
-            wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//*[contains(text(),'" + text + "')]")
-                    )
-            );
-            return true;
+            handlePopups();
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(bannerTag)).isDisplayed();
         } catch (Exception e) {
             return false;
         }

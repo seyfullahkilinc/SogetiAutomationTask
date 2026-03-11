@@ -1,6 +1,7 @@
-Feature: Sogeti Website Navigation
+@UI @Case1
+Feature: Quality Engineering Page Verification
 
-  Scenario: Navigate to Quality Engineering page via Services menu
+  Scenario: Verify navigation and visibility of Quality Engineering content
     Given User navigates to "https://www.sogeti.com/"
     And User handles popups
     When User hovers over "Services" menu
