@@ -8,28 +8,41 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DriverManager {
-    private static WebDriver driver;
+
+    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+
+    private static final boolean HEADLESS = Boolean.parseBoolean(
+            System.getProperty("headless", "false")
+    );
 
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if (driverThreadLocal.get() == null) {
             Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
+            Logger.getLogger("org.openqa.selenium.devtools").setLevel(Level.OFF);
             System.setProperty("webdriver.chrome.silentOutput", "true");
 
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized");
             options.addArguments("--disable-logging");
             options.addArguments("--log-level=3");
 
-            driver = new ChromeDriver(options);
+            if (HEADLESS) {
+                options.addArguments("--headless=new");
+                options.addArguments("--window-size=1920,1080");
+                options.addArguments("--disable-gpu");
+            } else {
+                options.addArguments("--start-maximized");
+            }
+
+            driverThreadLocal.set(new ChromeDriver(options));
         }
-        return driver;
+        return driverThreadLocal.get();
     }
 
     public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+        if (driverThreadLocal.get() != null) {
+            driverThreadLocal.get().quit();
+            driverThreadLocal.remove();
         }
     }
 }
