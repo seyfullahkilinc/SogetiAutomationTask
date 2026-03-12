@@ -1,12 +1,13 @@
 C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\stepDefinitions\TC3StepDefinitions.java
 C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\utils\FakerUtils.java
-C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\utils\DriverManager.java
 C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\stepDefinitions\CommonStepDefinitions.java
-C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\runners\TestRunner.java
-C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\stepDefinitions\Hooks.java
 C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\stepDefinitions\TC2StepDefinitions.java
 C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\pages\HomePage.java
 C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\stepDefinitions\TC1StepDefinitions.java
 C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\pages\BasePage.java
-C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\pages\QualityEngineeringPage.java
 C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\pages\ContactUsPage.java
+C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\utils\DriverManager.java
+C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\stepDefinitions\APIStepDefinitions.java
+C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\runners\TestRunner.java
+C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\stepDefinitions\Hooks.java
+C:\Users\seyfu\IdeaProjects\SogetiAutomationTask\src\test\java\org\example\pages\QualityEngineeringPage.java

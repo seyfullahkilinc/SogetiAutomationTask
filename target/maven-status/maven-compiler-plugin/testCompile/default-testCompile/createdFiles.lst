@@ -1,1 +1,3 @@
 org\example\stepDefinitions\TC3StepDefinitions.class
+org\example\stepDefinitions\Hooks.class
+org\example\stepDefinitions\APIStepDefinitions.class
