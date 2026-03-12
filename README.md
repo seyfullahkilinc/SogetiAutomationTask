@@ -92,17 +92,22 @@ mvn test
 
 **Run only UI tests:**
 ```bash
-mvn test -Dcucumber.filter.tags="@UI"
+mvn test -D"cucumber.filter.tags=@UI"
 ```
 
 **Run only API tests:**
 ```bash
-mvn test -Dcucumber.filter.tags="@API"
+mvn test -D"cucumber.filter.tags=@API"
 ```
 
 **Run a specific test case:**
 ```bash
-mvn test -Dcucumber.filter.tags="@Case1"
+mvn test -D"cucumber.filter.tags=@Case1"
+```
+
+**Run in headless mode:**
+```bash
+mvn test -Dheadless=true
 ```
 
 ---
