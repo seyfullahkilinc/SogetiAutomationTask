@@ -4,10 +4,8 @@ import io.cucumber.java.en.*;
 import org.example.pages.ContactUsPage;
 import org.example.utils.DriverManager;
 import org.example.utils.FakerUtils;
-import org.testng.Assert;
 
 public class TC2StepDefinitions {
-
     private final ContactUsPage contactUsPage = new ContactUsPage(DriverManager.getDriver());
 
     @When("User clicks on header link {string}")
@@ -74,10 +72,5 @@ public class TC2StepDefinitions {
     @And("User slides to submit the form")
     public void userSlidesToSubmit() {
         contactUsPage.performSlideToSubmit();
-    }
-
-    @Then("Thank you message should be displayed")
-    public void verifySuccess() {
-        Assert.assertTrue(contactUsPage.isThankYouVisible(), "Submission failed!");
     }
 }

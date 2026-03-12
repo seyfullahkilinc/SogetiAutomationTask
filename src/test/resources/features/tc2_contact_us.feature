@@ -2,15 +2,11 @@
 Feature: Contact Us Form Submission
 
   # TC2: Fill and submit the Contact Us form with randomly generated data
-  #
-  # ⚠️ AUTOMATION LIMITATION — SUBMIT + Thank You assertion:
-  # After clicking SUBMIT, a CAPTCHA or anti-bot mechanism may block submission.
-  # CAPTCHAs are intentionally designed to prevent automated interaction.
-  # WORKAROUNDS:
-  #   1. Use a test/staging environment where CAPTCHA is disabled.
-  #   2. Use a CAPTCHA solving service (e.g., 2Captcha, Anti-Captcha).
-  #   3. Mock/stub the form submission endpoint at API level.
-  #   4. Mark as known limitation in the test report.
+
+  # IMPLEMENTATION NOTE — Anti-Bot Mitigation:
+  # The form uses a custom 'Slide to Submit' component to prevent automated bots.
+  # This has been successfully automated using a JavaScript-based Event Dispatcher
+  # that simulates mousedown, mousemove, and mouseup events to bypass UI restrictions.
 
   Scenario: Submit Contact Us form with random data and verify Thank You message
     Given User navigates to "https://www.sogeti.com/"
@@ -28,4 +24,4 @@ Feature: Contact Us Form Submission
     And User fills the field "Message" with random message
     And User checks the "I agree" checkbox
     And User slides to submit the form
-#    Then Thank you message should be displayed
+    Then "Thank you" text should be visible on the page

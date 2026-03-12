@@ -84,13 +84,4 @@ public class ContactUsPage extends BasePage {
         }
     }
 
-    public boolean isThankYouVisible() {
-        try {
-            WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath("//*[contains(text(),'Thank you')]")));
-            return message.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
 }
