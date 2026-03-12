@@ -1,123 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-12T15:01:45 CET" name="Surefire suite" finished-at="2026-03-12T15:02:08 CET" duration-ms="23697">
+  <suite started-at="2026-03-12T16:02:16 CET" name="Surefire suite" finished-at="2026-03-12T16:02:23 CET" duration-ms="6995">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-03-12T15:01:45 CET" name="Surefire test" finished-at="2026-03-12T15:02:08 CET" duration-ms="23697">
+    <test started-at="2026-03-12T16:02:16 CET" name="Surefire test" finished-at="2026-03-12T16:02:23 CET" duration-ms="6995">
       <class name="org.example.runners.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:01:45 CET" name="setUpClass" finished-at="2026-03-12T15:01:45 CET" duration-ms="388" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T16:02:16 CET" name="setUpClass" finished-at="2026-03-12T16:02:17 CET" duration-ms="416" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@7b1bb01c]]>
+                <![CDATA[org.testng.TestRunner@720bf653]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:01:45 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T15:01:47 CET" duration-ms="1744" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["API_TC01 - Validate detailed geographical nodes for a specific German postal code"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Zippopotamus Location API Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:01:47 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T15:01:47 CET" duration-ms="110" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["API_TC02 - Verify place names for multiple countries and postal codes"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Zippopotamus International Data-Driven API Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:01:47 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T15:01:47 CET" duration-ms="111" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["API_TC02 - Verify place names for multiple countries and postal codes"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Zippopotamus International Data-Driven API Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:01:47 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T15:01:47 CET" duration-ms="113" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["API_TC02 - Verify place names for multiple countries and postal codes"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Zippopotamus International Data-Driven API Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:01:47 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T15:01:53 CET" duration-ms="5992" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Verify navigation and visibility of Quality Engineering content"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Quality Engineering Page Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:01:53 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T15:02:02 CET" duration-ms="9125" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Submit Contact Us form with random data and verify Thank You message"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Contact Us Form Submission"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:02:02 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T15:02:08 CET" duration-ms="6065" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T16:02:17 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T16:02:23 CET" duration-ms="6529" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -133,7 +37,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T15:02:08 CET" name="tearDownClass" finished-at="2026-03-12T15:02:08 CET" duration-ms="22" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:org.example.runners.TestRunner@636be97c]" started-at="2026-03-12T16:02:23 CET" name="tearDownClass" finished-at="2026-03-12T16:02:23 CET" duration-ms="24" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

@@ -3,7 +3,14 @@ package org.example.pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HomePage extends BasePage {
 
@@ -83,5 +90,50 @@ public class HomePage extends BasePage {
 
     public List<WebElement> getCountryLinks() {
         return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(countryLinksLocator));
+    }
+
+    public Map<String, Integer> checkCountryLinksStatus() {
+        List<WebElement> links = getCountryLinks();
+        Map<String, Integer> results = new LinkedHashMap<>();
+
+        // Java 11+ HttpClient — replaces deprecated HttpURLConnection
+        HttpClient httpClient = HttpClient.newBuilder()
+                .connectTimeout(Duration.ofSeconds(5))
+                .followRedirects(HttpClient.Redirect.NORMAL)
+                .build();
+
+        System.out.println("=================================================");
+        System.out.println("Total country links found: " + links.size());
+        System.out.println("=================================================");
+
+        for (WebElement link : links) {
+            String url = link.getAttribute("href");
+            if (url == null || url.isEmpty() || url.contains("javascript")) continue;
+
+            String host = URI.create(url).getHost();
+
+            try {
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(URI.create(url))
+                        .method("HEAD", HttpRequest.BodyPublishers.noBody())
+                        .timeout(Duration.ofSeconds(5))
+                        .build();
+
+                int statusCode = httpClient
+                        .send(request, HttpResponse.BodyHandlers.discarding())
+                        .statusCode();
+
+                String status = statusCode < 400 ? "PASS" : "FAIL";
+                System.out.printf("[%s] %-25s | Status Code: %d%n", status, host, statusCode);
+
+                results.put(host, statusCode);
+
+            } catch (Exception e) {
+                System.out.printf("[ERROR] %-25s | %s%n", host, e.getMessage());
+                results.put(host, 999); // 999 = connection error
+            }
+        }
+        System.out.println("=================================================");
+        return results;
     }
 }
