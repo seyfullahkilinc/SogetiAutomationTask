@@ -19,6 +19,6 @@ public class FakerUtils {
     public static String getJobTitle()    { return faker.job().title(); }
     public static String getEmail()       { return faker.internet().emailAddress(); }
     public static String getCompanyName() { return faker.company().name(); }
-    public static String getPhoneNumber() { return faker.phoneNumber().phoneNumber(); }
+    public static String getPhoneNumber() { return faker.number().digits(10); }
     public static String getMessage()     { return faker.lorem().sentence(12); }
 }

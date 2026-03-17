@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.example.utils.ConfigReader; // ConfigReader importu eklendi
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
@@ -15,9 +16,9 @@ public class APIStepDefinitions {
 
     private Response response;
 
-    @Given("User set base URI to {string}")
-    public void setBaseUri(String baseUri) {
-        RestAssured.baseURI = baseUri;
+    @Given("User sets the API base URI from {string}")
+    public void setBaseUriFromKey(String configKey) {
+        RestAssured.baseURI = ConfigReader.get(configKey);
     }
 
     @When("User sends a GET request to {string}")
@@ -54,6 +55,7 @@ public class APIStepDefinitions {
         String gPath = "places.find { it.'post code' == '" + postCode + "' }.'place name'";
         response.then().body(gPath, containsString(expectedPlaceName));
     }
+
     @Then("The response should contain the place name {string}")
     public void verifyPlaceNameInArray(String expectedPlaceName) {
         response.then().body("places.'place name'", org.hamcrest.Matchers.hasItem(expectedPlaceName));

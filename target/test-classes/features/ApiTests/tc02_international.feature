@@ -2,7 +2,7 @@
 Feature: Zippopotamus International Data-Driven API Verification
 
   Scenario Outline: API_TC02 - Verify place names for multiple countries and postal codes
-    Given User set base URI to "http://api.zippopotam.us"
+    Given User sets the API base URI from "api.base.url"
     When User sends a GET request to "/<country>/<postal_code>"
     Then The response status code should be 200
     And The content type should be "JSON"

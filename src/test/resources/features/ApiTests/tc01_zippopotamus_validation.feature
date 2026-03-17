@@ -2,7 +2,7 @@
 Feature: Zippopotamus Location API Verification
 
   Scenario Outline: API_TC01 - Validate detailed geographical nodes for a specific German postal code
-    Given User set base URI to "http://api.zippopotam.us"
+    Given User sets the API base URI from "api.base.url"
     When User sends a GET request to "<endpoint>"
     Then The response status code should be 200
     And The content type should be "JSON"

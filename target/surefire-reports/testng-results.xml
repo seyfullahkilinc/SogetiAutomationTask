@@ -1,91 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-12T16:31:46 CET" name="Surefire suite" finished-at="2026-03-12T16:32:10 CET" duration-ms="23784">
+  <suite started-at="2026-03-17T11:40:45 CET" name="Surefire suite" finished-at="2026-03-17T11:40:52 CET" duration-ms="6172">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@1817d444]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-03-12T16:31:46 CET" name="Surefire test" finished-at="2026-03-12T16:32:10 CET" duration-ms="23784">
+    <test started-at="2026-03-17T11:40:45 CET" name="Surefire test" finished-at="2026-03-17T11:40:52 CET" duration-ms="6172">
       <class name="org.example.runners.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:31:46 CET" name="setUpClass" finished-at="2026-03-12T16:31:47 CET" duration-ms="426" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:org.example.runners.TestRunner@1817d444]" started-at="2026-03-17T11:40:46 CET" name="setUpClass" finished-at="2026-03-17T11:40:46 CET" duration-ms="412" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@ea3491d]]>
+                <![CDATA[org.testng.TestRunner@46aa712c]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:31:47 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T16:31:48 CET" duration-ms="1724" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["API_TC01 - Validate detailed geographical nodes for a specific German postal code"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Zippopotamus Location API Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:31:48 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T16:31:49 CET" duration-ms="115" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["API_TC02 - Verify place names for multiple countries and postal codes"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Zippopotamus International Data-Driven API Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:31:49 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T16:31:49 CET" duration-ms="103" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["API_TC02 - Verify place names for multiple countries and postal codes"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Zippopotamus International Data-Driven API Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:31:49 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T16:31:49 CET" duration-ms="120" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["API_TC02 - Verify place names for multiple countries and postal codes"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Zippopotamus International Data-Driven API Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:31:49 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T16:31:53 CET" duration-ms="4526" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@1817d444]" started-at="2026-03-17T11:40:46 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-17T11:40:52 CET" duration-ms="5710" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -101,39 +37,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:31:53 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T16:32:03 CET" duration-ms="9957" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Submit Contact Us form with random data and verify Thank You message"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Contact Us Form Submission"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:32:03 CET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-12T16:32:10 CET" duration-ms="6760" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Verify all country specific links are working"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Global Country Links Verification"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:org.example.runners.TestRunner@3e92efc3]" started-at="2026-03-12T16:32:10 CET" name="tearDownClass" finished-at="2026-03-12T16:32:10 CET" duration-ms="18" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:org.example.runners.TestRunner@1817d444]" started-at="2026-03-17T11:40:52 CET" name="tearDownClass" finished-at="2026-03-17T11:40:52 CET" duration-ms="25" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

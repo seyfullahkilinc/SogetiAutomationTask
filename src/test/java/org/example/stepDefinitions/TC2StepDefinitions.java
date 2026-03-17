@@ -2,6 +2,7 @@ package org.example.stepDefinitions;
 
 import io.cucumber.java.en.*;
 import org.example.pages.ContactUsPage;
+import org.example.utils.ConfigReader;
 import org.example.utils.DriverManager;
 import org.example.utils.FakerUtils;
 
@@ -9,13 +10,13 @@ public class TC2StepDefinitions {
     private final ContactUsPage contactUsPage = new ContactUsPage(DriverManager.getDriver());
 
     @When("User clicks on header link {string}")
-    public void userClicksOnHeaderLink(String linkText) {
+    public void userClicksOnHeaderLink(String configKey) {
         contactUsPage.clickContactUs();
     }
 
     @And("User scrolls to {string} section")
-    public void userScrollsToSection(String section) {
-        // Handled within page actions
+    public void userScrollsToSection(String configKey) {
+        // Gerekirse ConfigReader.get(configKey) ile scroll yapılabilir
     }
 
     @And("User selects a purpose of contact")
@@ -29,43 +30,42 @@ public class TC2StepDefinitions {
     }
 
     @And("User fills the field {string} with random first name")
-    public void fillFirstName(String label) {
-        contactUsPage.fillField(label, FakerUtils.getFirstName());
+    public void fillFirstName(String configKey) {
+        contactUsPage.fillField(ConfigReader.get(configKey), FakerUtils.getFirstName());
     }
 
     @And("User fills the field {string} with random last name")
-    public void fillLastName(String label) {
-        contactUsPage.fillField(label, FakerUtils.getLastName());
+    public void fillLastName(String configKey) {
+        contactUsPage.fillField(ConfigReader.get(configKey), FakerUtils.getLastName());
     }
 
     @And("User fills the field {string} with random job title")
-    public void fillJobTitle(String label) {
-        contactUsPage.fillField(label, FakerUtils.getJobTitle());
+    public void fillJobTitle(String configKey) {
+        contactUsPage.fillField(ConfigReader.get(configKey), FakerUtils.getJobTitle());
     }
 
     @And("User fills the field {string} with random email")
-    public void fillEmail(String label) {
-        contactUsPage.fillField(label, FakerUtils.getEmail());
+    public void fillEmail(String configKey) {
+        contactUsPage.fillField(ConfigReader.get(configKey), FakerUtils.getEmail());
     }
 
     @And("User fills the field {string} with random company name")
-    public void fillCompany(String label) {
-        contactUsPage.fillField(label, FakerUtils.getCompanyName());
+    public void fillCompany(String configKey) {
+        contactUsPage.fillField(ConfigReader.get(configKey), FakerUtils.getCompanyName());
     }
 
     @And("User fills the field {string} with random phone number")
-    public void fillPhone(String label) {
-        String phone = new com.github.javafaker.Faker().number().digits(10);
-        contactUsPage.fillField(label, phone);
+    public void fillPhone(String configKey) {
+        contactUsPage.fillField(ConfigReader.get(configKey), FakerUtils.getPhoneNumber());
     }
 
     @And("User fills the field {string} with random message")
-    public void fillMessage(String label) {
-        contactUsPage.fillField(label, FakerUtils.getMessage());
+    public void fillMessage(String configKey) {
+        contactUsPage.fillField(ConfigReader.get(configKey), FakerUtils.getMessage());
     }
 
     @And("User checks the {string} checkbox")
-    public void userChecksCheckbox(String label) {
+    public void userChecksCheckbox(String configKey) {
         contactUsPage.acceptAgreement();
     }
 
