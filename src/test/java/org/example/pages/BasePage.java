@@ -11,15 +11,10 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     public void handlePopups() {
-        try {
-            WebElement stayBtn = driver.findElement(By.xpath("//button[contains(text(),'Stay on this Site')]"));
-            if (stayBtn.isDisplayed()) stayBtn.click();
-        } catch (Exception ignored) {}
-
         try {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             String script =
@@ -32,9 +27,16 @@ public class BasePage {
                             "}" +
                             "return findBtn(document);";
             js.executeScript(script);
-        } catch (Exception ignored) {}
-    }
 
+        } catch (Exception ignored) {}
+
+        try {
+            By stayBtnLocator = By.xpath("//button[contains(text(),'Stay on this Site')]");
+            WebElement stayBtn = wait.until(ExpectedConditions.elementToBeClickable(stayBtnLocator));
+            stayBtn.click();
+        } catch (Exception ignored) {
+        }
+    }
     public boolean isTextVisible(String text) {
         try {
             handlePopups();

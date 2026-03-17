@@ -16,7 +16,8 @@ public class TC2StepDefinitions {
 
     @And("User scrolls to {string} section")
     public void userScrollsToSection(String configKey) {
-        // Gerekirse ConfigReader.get(configKey) ile scroll yapılabilir
+        String sectionTitle = ConfigReader.get(configKey);
+        contactUsPage.scrollToSection(sectionTitle);
     }
 
     @And("User selects a purpose of contact")

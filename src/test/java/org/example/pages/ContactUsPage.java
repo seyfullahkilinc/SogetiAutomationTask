@@ -34,9 +34,18 @@ public class ContactUsPage extends BasePage {
         element.sendKeys(value);
     }
 
-    public void selectPurpose(int index) {
-        new Select(wait.until(ExpectedConditions.elementToBeClickable(purposeDropdown))).selectByIndex(index);
+    public void scrollToSection(String titleText) {
+        By sectionLocator = By.xpath("//h2[contains(normalize-space(),'" + titleText + "')] | //h3[contains(normalize-space(),'" + titleText + "')]");
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(sectionLocator));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
     }
+    public void selectPurpose(int index) {
+        WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(purposeDropdown));
+        Select select = new Select(dropdownElement);
+        select.selectByIndex(index);
+    }
+
 
     public void selectCountry(int index) {
         new Select(wait.until(ExpectedConditions.presenceOfElementLocated(countryDropdown))).selectByIndex(index);
