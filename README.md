@@ -1,121 +1,245 @@
-# SogetiAutomationTask
+# Sogeti Automation Task
 
-A test automation framework built with Java, Selenium, Cucumber, and TestNG — covering UI and API test scenarios for the Sogeti website.
+A comprehensive test automation framework for Sogeti.com website, implementing both UI and API test scenarios using industry-standard BDD approach with Cucumber.
 
----
+## Project Overview
 
-## Tech Stack
+This framework is built as a technical assessment for Sogeti, demonstrating expertise in modern test automation practices. It covers UI testing (navigation, form submission, link validation) and API testing (geographic data validation) with a focus on maintainability, reusability, and scalability.
 
-| Tool | Version |
-|------|---------|
-| Java | 17 |
-| Selenium | 4.28.0 |
-| Cucumber | 7.15.0 |
-| TestNG | 7.9.0 |
-| REST Assured | 5.4.0 |
-| JavaFaker | 1.0.2 |
-| WebDriverManager | 5.7.0 |
+### Technologies & Tools
 
----
+- **Java 11+** - Programming language
+- **Selenium WebDriver 4.28.0** - Browser automation
+- **Cucumber 7.15.0** - BDD framework for behavior-driven testing
+- **TestNG 7.9.0** - Test execution and reporting
+- **REST Assured 5.4.0** - API testing
+- **JavaFaker 1.0.2** - Test data generation
+- **WebDriverManager 5.7.0** - Automatic browser driver management
+- **Maven** - Build and dependency management
 
-## Project Structure
+## Architecture
+
+The framework follows **Page Object Model (POM)** design pattern with the following structure:
 
 ```
-src/test/java/org/example/
-├── pages/
-│   ├── BasePage.java               # Common Selenium utilities (wait, popup handling)
-│   ├── HomePage.java               # Sogeti homepage interactions + country link checks
-│   ├── ContactUsPage.java          # Contact Us form interactions
-│   └── QualityEngineeringPage.java # Quality Engineering page assertions
-├── stepDefinitions/
-│   ├── CommonStepDefinitions.java  # Shared steps (navigate, handle popups)
-│   ├── TC1StepDefinitions.java     # Quality Engineering navigation steps
-│   ├── TC2StepDefinitions.java     # Contact Us form steps
-│   ├── TC3StepDefinitions.java     # Country links validation steps
-│   ├── APIStepDefinitions.java     # REST Assured API steps
-│   └── Hooks.java                  # @Before / @After lifecycle (tag-based)
-├── runners/
-│   └── TestRunner.java             # Cucumber + TestNG runner
-└── utils/
-    ├── DriverManager.java          # ThreadLocal WebDriver management
-    └── FakerUtils.java             # Centralized random test data generator
-
-src/test/resources/
-├── features/
-│   ├── UI Tests/
-│   │   ├── tc1_quality_engineering.feature
-│   │   ├── tc2_contact_us_form.feature
-│   │   └── tc3_global_links_healthcheck.feature
-│   └── ApiTests/
-│       ├── tc01_location_api.feature
-│       └── tc02_international.feature
+src/
+├── main/java/
+│   ├── pages/
+│   │   ├── BasePage.java          # Common page methods and utilities
+│   │   ├── HomePage.java           # Home page objects and methods
+│   │   ├── ServicesPage.java      # Services page objects
+│   │   ├── QualityEngineeringPage.java
+│   │   └── ContactUsPage.java
+│   ├── utils/
+│   │   ├── DriverManager.java     # ThreadLocal WebDriver management
+│   │   ├── ConfigReader.java      # Configuration file reader
+│   │   └── APIUtils.java          # API testing utilities
+│   └── resources/
+│       └── config.properties       # Environment configurations
+└── test/
+    ├── java/
+    │   ├── runners/
+    │   │   └── TestRunner.java    # TestNG + Cucumber runner
+    │   └── stepdefinitions/
+    │       ├── TC1StepDefinitions.java
+    │       ├── TC2StepDefinitions.java
+    │       ├── TC3StepDefinitions.java
+    │       └── APIStepDefinitions.java
+    └── resources/
+        └── features/
+            ├── TC1_NavigateToQualityEngineering.feature
+            ├── TC2_ContactUsForm.feature
+            ├── TC3_CountryLinks.feature
+            └── API_ZippopotamTests.feature
 ```
 
----
+### Key Design Principles
+
+1. **Generic & Reusable Methods**: All Selenium interactions are parameterized and reusable across different pages
+2. **Page Object Model**: Each page is represented as a separate class with its own locators and methods
+3. **Lazy Initialization**: Page objects are instantiated per-step to avoid stale element references
+4. **Thread Safety**: `ThreadLocal<WebDriver>` ensures parallel execution capability
+5. **BDD Approach**: Feature files use Gherkin syntax with parameterized steps (`{string}`)
 
 ## Test Cases
 
-### UI Tests
+### UI Test Cases
 
-| ID | Description | Tag |
-|----|-------------|-----|
-| TC1 | Navigate to Quality Engineering page via Services menu | `@Case1` |
-| TC2 | Submit Contact Us form with randomly generated data | `@Case2` |
-| TC3 | Verify all country-specific Sogeti links return HTTP 200 | `@Case3` |
+#### TC1: Navigate to Quality Engineering Page
+- Opens Sogeti homepage
+- Accepts cookies
+- Navigates through Services menu to Quality Engineering page
+- Validates page title and hover menu items
 
-### API Tests
+#### TC2: Contact Us Form Submission
+- Fills contact form with dynamic test data
+- Validates all required fields
+- Submits the form (Note: CAPTCHA may block actual submission)
 
-| ID | Description | Tag |
-|----|-------------|-----|
-| API1 | Validate geographical data for a German postal code | `@API_TC01` |
-| API2 | Data-driven international postal code validation | `@API_TC02` |
+#### TC3: Country Links Validation
+- Collects all country links from Worldwide dropdown
+- Sends HTTP HEAD requests to verify each link's status
+- Reports all broken links using SoftAssert
 
----
+### API Test Cases
 
-## Design Principles
+#### API1: Germany Postal Code Validation
+- Validates postal code format for Germany
+- Verifies state information for DE-BW (Baden-Württemberg)
 
-- **Page Object Model (POM)** — All page interactions are encapsulated in page classes
-- **Generic & Reusable Methods** — Locators accept parameters; no hardcoded values
-- **ThreadLocal DriverManager** — Safe for parallel test execution
-- **Tag-based Hooks** — Browser only launches for `@UI` scenarios; API tests run without browser
-- **Lazy Initialization** — Page objects are created per-step to always reference the active driver
-- **FakerUtils** — All random test data generated from a single utility class
+#### API2: US Postal Code Validation
+- Tests multiple postal codes
+- Validates country abbreviation and state data
 
----
+## Setup & Installation
 
-## How to Run
+### Prerequisites
 
-**Run all tests:**
+- Java JDK 11 or higher
+- Maven 3.6+
+- Google Chrome browser (latest version)
+- Git
+
+### Installation Steps
+
+1. Clone the repository:
+```bash
+git clone https://github.com/seyfullahkilinc/SogetiAutomationTask.git
+cd SogetiAutomationTask
+```
+
+2. Install dependencies:
+```bash
+mvn clean install -DskipTests
+```
+
+3. Verify installation:
 ```bash
 mvn test
 ```
 
-**Run only UI tests:**
+## Running Tests
+
+### Run All Tests
 ```bash
-mvn test -D"cucumber.filter.tags=@UI"
+mvn clean test
 ```
 
-**Run only API tests:**
+### Run Specific Test Case (Tag-based)
+
+**TC1 - Quality Engineering Navigation:**
 ```bash
-mvn test -D"cucumber.filter.tags=@API"
+mvn clean test -Dcucumber.filter.tags="@TC1"
 ```
 
-**Run a specific test case:**
+**TC2 - Contact Us Form:**
 ```bash
-mvn test -D"cucumber.filter.tags=@Case1"
+mvn clean test -Dcucumber.filter.tags="@TC2"
 ```
 
-**Run in headless mode:**
+**TC3 - Country Links Validation:**
 ```bash
-mvn test -Dheadless=true
+mvn clean test -Dcucumber.filter.tags="@TC3"
 ```
 
----
+**All UI Tests:**
+```bash
+mvn clean test -Dcucumber.filter.tags="@UI"
+```
 
-## Prerequisites
+**All API Tests:**
+```bash
+mvn clean test -Dcucumber.filter.tags="@API"
+```
 
-- Java 17+
-- Maven 3.6+
-- Google Chrome (latest)
+### Headless Mode
 
-> WebDriverManager automatically downloads the matching ChromeDriver — no manual setup needed.
+Run tests in headless mode (no browser UI):
+```bash
+mvn clean test -Dheadless=true
+```
+
+### Windows PowerShell/CMD Syntax
+
+When running on Windows PowerShell or CMD, use quotes around the entire property:
+```bash
+mvn clean test -D"cucumber.filter.tags=@TC1"
+```
+
+## Framework Features
+
+### 1. ThreadLocal WebDriver Management
+Ensures thread safety for parallel execution:
+```java
+private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+```
+
+### 2. Generic Locator Pattern
+Single method handles multiple form fields via parameterized XPath:
+```java
+public void fillField(String labelText, String value) {
+    String xpath = "//label[contains(text(), '" + labelText + "')]//following-sibling::input";
+    WebElement field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+    field.sendKeys(value);
+}
+```
+
+### 3. Shadow DOM Handling
+Recursive JavaScript traversal for cookie consent banners:
+```java
+private void handlePopups() {
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    // Recursive shadow DOM traversal
+    js.executeScript("...");
+}
+```
+
+### 4. Soft Assertions
+TC3 uses SoftAssert to report all link failures together:
+```java
+SoftAssert softAssert = new SoftAssert();
+// Test all links
+softAssert.assertAll();
+```
+
+### 5. Java 11 HttpClient
+Modern HTTP client for link validation:
+```java
+HttpClient client = HttpClient.newHttpClient();
+HttpResponse<Void> response = client.send(request, HttpResponse.BodyHandlers.discarding());
+```
+
+## Known Limitations
+
+1. **CAPTCHA on Contact Form**: Sogeti.com uses CAPTCHA which may prevent form submission in automated tests
+2. **CDP Version Warning**: Chrome 145 may show ChromeDriver CDP version mismatch warnings (suppressed in config)
+3. **Dynamic Content**: Some elements may require JavaScript executor for interaction due to sogeti.com's implementation
+
+## Test Reports
+
+After test execution, reports are generated in:
+- `target/cucumber-reports/` - HTML reports
+- Console output with `pretty` plugin formatting
+
+## Troubleshooting
+
+### StaleElementReferenceException
+- Page objects use lazy initialization
+- Elements are re-located on each interaction
+
+### Click Intercepted Exception
+- Framework uses JavascriptExecutor as fallback
+- Popups are handled automatically
+
+### Invalid Element State Exception
+- `safeClear()` method checks element state before clearing
+- JavaScript fallback for readonly fields
+
+
+
+## Author
+
+**Seyfullah Kilınç**
+- GitHub: [@seyfullahkilinc](https://github.com/seyfullahkilinc)
+
+practices including BDD, POM, thread safety, and both UI and API testing capabilities.
